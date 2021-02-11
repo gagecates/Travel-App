@@ -9,14 +9,20 @@ body{
     display: flex;
     grid-area: hd;
     min-height: 50px;
-    justify-content: right;
+    justify-content: flex-end;
+    padding-right: 12vw;
     align-items: center;
-    border: 5px solid black;
+    border: 5px solid white;
 }
+
 
 #main{
     display: flex;
     grid-area: ct;
+    justify-content: flex-end;
+    padding-right:12vw;
+    align-items: center;
+    border: 5px solid blue;
 }
 
 #footer{
@@ -52,7 +58,9 @@ button{
     box-shadow: 2px 4px 5px #444;
 }
 h1{
-    font-size: 36px;
+    font-size: 75px;
+    font-family: 'Kalam', cursive;
+    text-shadow: 2px 2px #ebc51f;
 }
 
 textarea{

@@ -31,17 +31,16 @@
         width:99vw;
         height:99vh;
         margin:auto;
-        grid-template-rows: 100px 800px 1fr;
+        grid-template-rows: 10vh 80vh 1fr;
         grid-template-columns: repeat(7,1fr);
         grid-template-areas:
         "hd hd hd hd hd hd hd"
         "ct ct ct ct ct ct ct"
         "ft ft ft ft ft ft ft";
-        background-image: url("../pics/beach-background.jpg");
+        background: url("../pics/beach-background.jpg") center no-repeat;
+        background-size: cover;
         background-color: #050505;
-        background-position: center; /* Center the image */
-        background-repeat: no-repeat;
-        color: #0a6581;
+        color: #000405;
         font-family: 'Oswald', sans-serif;
     }
 }
