@@ -1,0 +1,64 @@
+@import url("media-queries.css");
+
+body{
+    background: #cebe31;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+#navbar{
+    display: flex;
+    grid-area: hd;
+    min-height: 50px;
+    justify-content: right;
+    align-items: center;
+    border: 5px solid black;
+}
+
+#main{
+    display: flex;
+    grid-area: ct;
+}
+
+#footer{
+    grid-area: ft;
+    border: 5px solid purple;
+}
+
+/*  Basic Styling To Override Default For Basic HTML Elements */
+label{
+    display:block;
+    font-size: 27px;
+}
+
+input{
+    display:block;
+    height: 60px;
+    width: 320px;
+    background:#22b2da;
+    color: #f0d43a;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+}
+
+button{
+    width: 400px;
+    height: 100px;
+    background: #3b4a6b;
+    color: #f0d43a;
+    font-size: 26px;
+    font-family: 'Oswald', sans-serif;
+    border: none;
+    box-shadow: 2px 4px 5px #444;
+}
+h1{
+    font-size: 36px;
+}
+
+textarea{
+    background:#22b2da;
+    color: #f0d43a;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+}
+/* Reset style for HTML element on active to have no border*/
