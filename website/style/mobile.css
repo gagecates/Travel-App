@@ -1,25 +1,21 @@
-@import url("mobile.css");
+/* Small Screens */
+@media screen and (max-width: 600px){
 
-/* Medium and Large Screens */
-@media screen and (min-width: 601px){
     #mainwrap{
         
-        display: grid;
+        display:grid;
         grid-gap: 10px;
-        width:99vw;
         height:99vh;
-        margin:auto;
-        grid-template-rows: 10vh 80vh 1fr;
-        grid-template-columns: repeat(7,1fr);
+        margin: auto;
+        grid-template-rows: 1fr 80vh 1fr;
+        grid-template-columns: 1fr;
         grid-template-areas:
-        "hd hd hd hd hd hd hd"
-        "ct ct ct ct ct ct ct"
-        "ft ft ft ft ft ft ft";
-        background: url("../pics/beach-background.jpg") center no-repeat;
-        background-size: cover;
-        background-color: #050505;
-        color: #000405;
+        "hd"
+        "ct"
+        "ft";
+        color:#fceb8a;
         font-family: 'Oswald', sans-serif;
+
     }
 
     body{
@@ -35,13 +31,14 @@
         align-items: center;
     }
     
-    
     #main-content{
         grid-area: ct;
         display: flex;
-        justify-content: flex-end;
-        padding-right: 5vw;
-        padding-top: 13vh;
+        justify-content: center;
+        align-items: flex-end;
+        background: url("../pics/beach-background.jpg") center no-repeat;
+        background-size: cover;
+        background-color: #050505;
     }
     
     #footer{
@@ -54,11 +51,12 @@
     
     #intro{
         font-size: 2.5vh;
+        text-shadow: 2px 2px #1d1b1b;
         text-align: center;
         backdrop-filter: blur(20px);
         border-radius: 20px;
         height: 50vh;
-        width: 30vw;
+        width: 80vw;
         font-family: 'Kalam', cursive;
     }
     
@@ -69,9 +67,9 @@
     }
     
     input{
-        width: 20vw;
+        width: 50vw;
         padding: 1vh;
-        margin: 8px 0;
+        margin: 4px 0;
         box-sizing: border-box;
         border: 3px solid rgb(12, 12, 10);
         border-radius: 4px;
@@ -98,7 +96,7 @@
     }
     
     form{
-        padding-top: 30px;
+        padding-top: 1vh;
     }
     
     /* social media button styling */
@@ -123,6 +121,5 @@
         background: #55ACEE;
         color: white;
       }
-
+    
 }
-
