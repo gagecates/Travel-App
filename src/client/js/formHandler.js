@@ -1,4 +1,4 @@
-import {checkForURL} from './URLChecker.js'
+import {checkForDest} from './DestChecker.js'
 
 const apiKey = process.env.API_KEY;
 const baseURL = 'https://api.meaningcloud.com/sentiment-2.1';
@@ -9,21 +9,16 @@ function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
-    let articleLink = document.getElementById('name').value
-    if (checkForURL(articleLink)) {
+    let userDest = document.getElementById('dest').value
+    let userDate = document.getElementById('date').value
+    if (checkForDest(userDest)) {
 
       console.log("::: Form Submitted :::")
 
-      postData('http://localhost:8081/analyse', {text: articleLink})
+      postData('http://localhost:8081/analyse', {dest: userDest, date: userDate})
 
       .then(newData => {
-
-        document.getElementById('score tag').innerHTML = `Score Tag: ${newData.score_tag}`
-        document.getElementById("agreement").innerHTML = `Agreement: ${newData.agreement}`
-        document.getElementById("subjectivity").innerHTML = `Subjectivity: ${newData.subjectivity}`
-        document.getElementById("confidence").innerHTML = `Confidence: ${newData.confidence}`
-        document.getElementById("irony").innerHTML = `Irony: ${newData.irony}`
-
+        updateUI(newData)
       })
 
     } else {

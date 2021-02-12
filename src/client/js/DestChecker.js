@@ -1,4 +1,4 @@
- function checkForURL(inputText) {
+ function checkForDest(inputText) {
     console.log("::: Running checkForURL :::", inputText);
     let options = [
         "https://",
@@ -13,4 +13,4 @@
     }
 }
 
-export { checkForURL }
+export { checkForDest }
