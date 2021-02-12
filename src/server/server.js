@@ -1,5 +1,6 @@
 // Require Express to run server and routes
 var express = require('express');
+var path = require('path')
 
 // Start up an instance of app
 const app = express();
@@ -16,7 +17,7 @@ const { response } = require('express');
 app.use(cors());
 
 // Initialize the main project folder
-app.use(express.static('website'));
+app.use(express.static('dist'));
 
 // Setup Server
 const port = 8000;
@@ -28,21 +29,8 @@ function listening(){
     console.log(`running on localhost: ${port}`);
 }
 
-
-app.get('/all', (request, response)=> {
-    response.send(projectData);
-  });
-
-
-app.post('/add', (request, response)=> {
-
-  newData = request.body;
-
-  projectData['temp'] = newData.temp;
-  projectData['date'] = newData.date;
-  projectData['feel'] = newData.feel;
-
-  response.send(projectData);
-
-});
+app.get('/', function (req, res) {
+  // res.sendFile('dist/index.html')
+  res.sendFile(path.resolve('src/client/views/index.html'))
+})
 
