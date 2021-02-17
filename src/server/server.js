@@ -36,6 +36,7 @@ function listening(){
 // API info
 const geoUser = process.env.geoUser;
 const weatherBitKey = process.env.weatherBitKey
+const pixabeyKey = process.env.pixabeyKey
 
 let tripDate = ''
 let cityOptions = {}
@@ -67,7 +68,7 @@ app.post('/getCities', async function (req, res) {
 
 
 app.post('/getWeather', async function (req, res) {
-  console.log('boom')
+
   const dest = req.body.city
   const cityObject = Object.values(cityOptions).find(obj=>obj.name === dest)
   let lat = cityObject.lat
@@ -78,7 +79,24 @@ app.post('/getWeather', async function (req, res) {
     
     try {
       const responseJSON = await response.json()
-      console.log(responseJSON)
+      res.send(responseJSON)
+
+    }  catch(error) {
+      console.log('error')
+      console.log("error", error);
+  
+    }
+})
+
+
+app.post('/city-pic', async function (req, res) {
+  const dest = req.body.city
+  const geoURL = `http://api.geonames.org/searchJSON?q=${dest}&maxRows=10&username=+${geoUser}`;
+  const response = await fetch(geoURL)
+  
+    try {
+      const responseJSON = await response.json()
+      newCityOptions = Object.assign(cityOptions, responseJSON.geonames)
       res.send(responseJSON)
 
     }  catch(error) {
