@@ -1,28 +1,34 @@
 import {checkForDest} from './DestChecker.js'
-
-const apiKey = process.env.API_KEY;
-const baseURL = 'https://api.meaningcloud.com/sentiment-2.1';
-const lang = '&lang=en';
+import {updateUICities} from './updateUICities.js'
+import {getCoordinates} from './getCoordinates.js'
 
 
 function handleSubmit(event) {
     event.preventDefault()
+    console.log('working thus far lol')
 
     // check what text was put into the form field
     let userDest = document.getElementById('dest').value
-    let userDate = document.getElementById('date').value
+    let userDate = document.getElementById('arival').value
     if (checkForDest(userDest)) {
 
       console.log("::: Form Submitted :::")
 
-      postData('http://localhost:8081/analyse', {dest: userDest, date: userDate})
+      postData('http://localhost:8000/analyze', {dest: userDest, date: userDate})
 
-      .then(newData => {
-        updateUI(newData)
-      })
+        .then(cities => {
+          return updateUICities(cities)
+
+        })
+
+        .then(cityList => {
+          chooseCity(cityList)
+
+        })
+
 
     } else {
-      alert("Sorry that's not a valid URL!")
+      alert("Sorry that not a valid destination!")
 
     }
     

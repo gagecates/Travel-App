@@ -20,19 +20,18 @@
     </div>
 
     <div id='main-content'>
-      <div id='intro'>
-        <h3>Headed Somewhere?</h3>
-        <p>Enter your destination and departure date and we will let you know what to expect for weather!</p>
+      <div id='content'>
+        <h3 id='header'>Headed Somewhere?</h3>
+        <p id='instructions'>Enter your destination and departure date and we will let you know what to expect for weather!</p>
 
         <form>
           <label for="dest">Destination:</label><br>
-          <input type
-          ="text" id="dest" name="dest"><br>
+          <input type="text" id="dest" name="dest"><br>
 
           <label for="arival">Arrival Date:</label><br>
           <input type="date" id="arival" name="arival" value="2021-02-22" min="2021-02-22" max="2025-12-31"><br>
 
-          <button id="generate" type="submit" onclick="return Client.handleSubmit(event)"> Lets Go!</button>
+          <button id="submit-button" type="submit" onclick="return Client.handleSubmit(event)"> Lets Go!</button>
         </form>
 
       </div>

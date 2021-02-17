@@ -1,16 +1,6 @@
- function checkForDest(inputText) {
-    console.log("::: Running checkForURL :::", inputText);
-    let options = [
-        "https://",
-        "http://"
-    ]
-
-    if(inputText.includes('http')) {
-        return true
-
-    } else {
-        return false
-    }
+ function checkForDest(userDest) {
+    console.log("::: Running checkForURL :::", userDest);
+    return true;
 }
 
 export { checkForDest }

@@ -1,3 +1,7 @@
+const fetch = require("node-fetch");
+const dotenv = require('dotenv')
+dotenv.config()
+
 // Require Express to run server and routes
 var express = require('express');
 var path = require('path')
@@ -29,8 +33,28 @@ function listening(){
     console.log(`running on localhost: ${port}`);
 }
 
+// API info
+const geoUser = process.env.geoUser;
+
+// return home page to client
 app.get('/', function (req, res) {
   // res.sendFile('dist/index.html')
   res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
+app.post('/analyze', async function (req, res) {
+  const dest = req.body.dest
+  const geoURL = `http://api.geonames.org/searchJSON?q=${dest}&maxRows=10&username=+${geoUser}`;
+  const response = await fetch(geoURL)
+    
+    try {
+      const responseJSON = await response.json()
+      console.log(responseJSON)
+      res.send(responseJSON)
+
+    }  catch(error) {
+      console.log('error')
+      console.log("error", error);
+  
+    }
+})
