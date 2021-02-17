@@ -1,5 +1,5 @@
 import { checkForDest } from './js/DestChecker'
-import { handleSubmit } from './js/formHandler'
+import { handleSubmit } from './js/app'
 import './style/style.scss'
 import './style/mobile.scss'
 

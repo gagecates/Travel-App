@@ -1,37 +1,31 @@
 import {checkForDest} from './DestChecker.js'
 import {updateUICities} from './updateUICities.js'
-import {getCoordinates} from './getCoordinates.js'
 
+let cityList = ''
 
 function handleSubmit(event) {
     event.preventDefault()
-    console.log('working thus far lol')
 
-    // check what text was put into the form field
     let userDest = document.getElementById('dest').value
     let userDate = document.getElementById('arival').value
-    if (checkForDest(userDest)) {
 
-      console.log("::: Form Submitted :::")
+    console.log("::: Form Submitted :::")
 
-      postData('http://localhost:8000/analyze', {dest: userDest, date: userDate})
+    postData('http://localhost:8000/analyze', {dest: userDest, date: userDate})
 
-        .then(cities => {
-          return updateUICities(cities)
+      .then(cities => {
+        cityList = updateUICities(cities)
+        cityList.addEventListener('click', getCoordinates)
 
-        })
+      })
 
-        .then(cityList => {
-          chooseCity(cityList)
+}
 
-        })
+const getCoordinates = async (evt) => {
+
+  console.log(evt.target.innerHTML)
 
 
-    } else {
-      alert("Sorry that not a valid destination!")
-
-    }
-    
 }
 
 
