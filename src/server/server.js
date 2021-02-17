@@ -46,17 +46,16 @@ app.get('/', function (req, res) {
   res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
+
 app.post('/getCities', async function (req, res) {
   const dest = req.body.dest
   tripDate = req.body.date
   const geoURL = `http://api.geonames.org/searchJSON?q=${dest}&maxRows=10&username=+${geoUser}`;
   const response = await fetch(geoURL)
   
-    
     try {
       const responseJSON = await response.json()
       newCityOptions = Object.assign(cityOptions, responseJSON.geonames)
-      console.log(newCityOptions)
       res.send(responseJSON)
 
     }  catch(error) {
@@ -66,14 +65,16 @@ app.post('/getCities', async function (req, res) {
     }
 })
 
+
 app.post('/getWeather', async function (req, res) {
-  const dest = req.body
-  weatherObject = Object.values(cityOptions).find(obj=>obj.name === dest)
-  console.log(weatherObject)
+  console.log('boom')
+  const dest = req.body.city
+  const cityObject = Object.values(cityOptions).find(obj=>obj.name === dest)
+  let lat = cityObject.lat
+  let lng = cityObject.lng
   
-  const weatherUrl = `http://api.weatherbit.io/v2.0/forecast/daily?NC&key=${weatherBitKey}&lat=${lat}&lon=${lng}`;
+  const weatherURL = `http://api.weatherbit.io/v2.0/forecast/daily?NC&key=${weatherBitKey}&lat=${lat}&lon=${lng}`;
   const response = await fetch(weatherURL)
-  
     
     try {
       const responseJSON = await response.json()

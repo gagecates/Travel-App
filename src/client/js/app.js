@@ -15,17 +15,15 @@ function handleSubmit(event) {
 
       .then(cities => {
         cityList = updateUICities(cities)
-        cityList.addEventListener('click', function (){
-          const cityName = event.target.innerHTML
-          getWeather('http://localhost:8000/getWeather', cityName)
-
-        })
-
+        cityList.addEventListener('click', getWeather)
       })
 
 }
 
-const getWeather = async ( url = '', cityName) => {
+const getWeather = async (evt) => {
+
+  let data = {city: evt.target.innerHTML}
+  let url = 'http://localhost:8000/getWeather'
 
   const response = await fetch(url, {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -33,7 +31,7 @@ const getWeather = async ( url = '', cityName) => {
       headers: {
           'Content-Type': 'application/json',
       },
-      body: JSON.stringify(cityName), // body data type must match "Content-Type" header        
+      body: JSON.stringify(data), // body data type must match "Content-Type" header        
   });
 
     try {
