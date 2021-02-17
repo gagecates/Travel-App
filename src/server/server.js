@@ -35,6 +35,10 @@ function listening(){
 
 // API info
 const geoUser = process.env.geoUser;
+const weatherBitKey = process.env.weatherBitKey
+
+let tripDate = ''
+let cityOptions = {}
 
 // return home page to client
 app.get('/', function (req, res) {
@@ -42,10 +46,34 @@ app.get('/', function (req, res) {
   res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
-app.post('/analyze', async function (req, res) {
+app.post('/getCities', async function (req, res) {
   const dest = req.body.dest
+  tripDate = req.body.date
   const geoURL = `http://api.geonames.org/searchJSON?q=${dest}&maxRows=10&username=+${geoUser}`;
   const response = await fetch(geoURL)
+  
+    
+    try {
+      const responseJSON = await response.json()
+      newCityOptions = Object.assign(cityOptions, responseJSON.geonames)
+      console.log(newCityOptions)
+      res.send(responseJSON)
+
+    }  catch(error) {
+      console.log('error')
+      console.log("error", error);
+  
+    }
+})
+
+app.post('/getWeather', async function (req, res) {
+  const dest = req.body
+  weatherObject = Object.values(cityOptions).find(obj=>obj.name === dest)
+  console.log(weatherObject)
+  
+  const weatherUrl = `http://api.weatherbit.io/v2.0/forecast/daily?NC&key=${weatherBitKey}&lat=${lat}&lon=${lng}`;
+  const response = await fetch(weatherURL)
+  
     
     try {
       const responseJSON = await response.json()
@@ -58,3 +86,4 @@ app.post('/analyze', async function (req, res) {
   
     }
 })
+
