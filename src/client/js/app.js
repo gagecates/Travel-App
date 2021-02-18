@@ -1,6 +1,6 @@
 import {checkForDest} from './DestChecker.js'
 import {updateUICities} from './updateUICities.js'
-import {updateWeather} from './updateWeather.js'
+import {updateUIWeather} from './updateWeather.js'
 
 let cityList = ''
 
@@ -10,16 +10,14 @@ function handleSubmit(event) {
     let userDest = document.getElementById('dest').value
     let userDate = document.getElementById('arival').value
 
-    console.log("::: Form Submitted :::")
-
     postFormData('http://localhost:8000/getCities', {dest: userDest, date: userDate})
 
     .then(cities => {
       cityList = updateUICities(cities)
       cityList.addEventListener('click', getWeather)
 
-    })
-}
+    }) 
+
 
 const getWeather = async (evt) => {
 
@@ -36,8 +34,8 @@ const getWeather = async (evt) => {
   });
 
     try {
-      const weatherData = await response.json();
-      updateUIWeather(weatherData, city);
+      const newData = await response.json();
+      updateUIWeather(newData);
 
     }catch(error) {
       console.log("error", error);

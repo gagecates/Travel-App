@@ -36,10 +36,18 @@ function listening(){
 // API info
 const geoUser = process.env.geoUser;
 const weatherBitKey = process.env.weatherBitKey
-const pixabeyKey = process.env.pixabeyKey
+const pixabayKey = process.env.pixabayKey
+
 
 let tripDate = ''
 let cityOptions = {}
+
+let finalData = {
+  destination: '',
+  duration: '',
+  temp: [],
+  pic: ''
+}
 
 // return home page to client
 app.get('/', function (req, res) {
@@ -50,7 +58,7 @@ app.get('/', function (req, res) {
 
 app.post('/getCities', async function (req, res) {
   const dest = req.body.dest
-  tripDate = req.body.date
+  totalData.date = req.body.date
   const geoURL = `http://api.geonames.org/searchJSON?q=${dest}&maxRows=10&username=+${geoUser}`;
   const response = await fetch(geoURL)
   
@@ -69,16 +77,18 @@ app.post('/getCities', async function (req, res) {
 
 app.post('/getWeather', async function (req, res) {
 
-  const dest = req.body.city
-  const cityObject = Object.values(cityOptions).find(obj=>obj.name === dest)
-  let lat = cityObject.lat
-  let lng = cityObject.lng
+  const city = req.body.city
+  const cityObject = Object.values(cityOptions).find(obj=>obj.name === city)
+  const lat = cityObject.lat
+  const lng = cityObject.lng
   
   const weatherURL = `http://api.weatherbit.io/v2.0/forecast/daily?NC&key=${weatherBitKey}&lat=${lat}&lon=${lng}`;
   const response = await fetch(weatherURL)
     
     try {
       const responseJSON = await response.json()
+      totalData.destination = city
+      console.log(responseJSON)
       res.send(responseJSON)
 
     }  catch(error) {
@@ -90,17 +100,25 @@ app.post('/getWeather', async function (req, res) {
 
 
 app.post('/city-pic', async function (req, res) {
-  const dest = req.body.city
-  const geoURL = `http://api.geonames.org/searchJSON?q=${dest}&maxRows=10&username=+${geoUser}`;
-  const response = await fetch(geoURL)
+  const city = req.body.city
+  const state = req.body.state
+  const pixURL = `https://pixabay.com/api/?key=${pixabayKey}&q=${city}&image_type=photo&category=travel`;
+  const response = await fetch(pixURL)
   
     try {
-      const responseJSON = await response.json()
-      newCityOptions = Object.assign(cityOptions, responseJSON.geonames)
-      res.send(responseJSON)
+      const newData = await response.json()
+      const photoURL = newData.hits[0].webformatURL
 
+        if (photoURL == null) {
+
+          res.send(genericPhotoURL)
+  
+        }else {
+
+          res.send(photoURL)
+        }
+    
     }  catch(error) {
-      console.log('error')
       console.log("error", error);
   
     }

@@ -1,12 +1,14 @@
-function updateUIWeather (weatherData, cityName) {
+const genericPhotoURL = 'https://locationindie.com/wp-content/uploads/2018/01/travel-2569522_1920.jpg'
+
+function updateUIWeather (data) {
 
     /* make a call to the server for a fetch of the cities picture */
-    const city = cityName.city
-    console.log(city)
-    getCityPicture('http://localhost:8000/city-pic', city)
+    const city = data.city_name
+    const state = data.state_code
+    getCityPicture('http://localhost:8000/city-pic', {city: city, state: state})
 
-    .then(newData => {
-        console.log(newData)
+    .then(response => {
+        
     })
 
     // clear contents of page to allow new data to populate
@@ -16,7 +18,7 @@ function updateUIWeather (weatherData, cityName) {
 }
 
 
-const getCityPicture = async ( url = '', city)=>{
+const getCityPicture = async ( url = '', data = {}) => {
 
     const response = await fetch(url, {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -24,17 +26,17 @@ const getCityPicture = async ( url = '', city)=>{
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(city), // body data type must match "Content-Type" header        
+        body: JSON.stringify(data), // body data type must match "Content-Type" header        
     });
   
       try {
-        const newData = await response.json();
-        return newData
-
+        const newData = await response.json()
+        return
+        
       }catch(error) {
         console.log("error", error);
       }
-};
+}
 
 
 export {updateUIWeather}
