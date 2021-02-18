@@ -1,14 +1,36 @@
-import {checkForDest} from './DestChecker.js'
+import {checkForDest} from './getCoords.js'
 import {updateUICities} from './updateUICities.js'
 import {updateUIWeather} from './updateWeather.js'
 
-let cityList = ''
 
-function handleSubmit(event) {
-    event.preventDefault()
+async function handleSubmit(event) {
 
-    let userDest = document.getElementById('dest').value
-    let userDate = document.getElementById('arival').value
+  const dest = document.getElementById('dest').value
+  const arival = document.getElementById('arival').value
+  const duration = document.getElementById('duration').value
+
+  const coords = await getCoordinates(dest)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     postFormData('http://localhost:8000/getCities', {dest: userDest, date: userDate})
 
