@@ -56,6 +56,40 @@ app.get('/', function (req, res) {
 })
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.post('/getCities', async function (req, res) {
   const dest = req.body.dest
   totalData.date = req.body.date

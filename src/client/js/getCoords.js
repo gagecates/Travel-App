@@ -1,6 +1,19 @@
-async function getCoordinates(destination) {
-    const response = await fetch('http://localhost:8000/coordinates', )
-    const responseJSON = await response.json()
+const getCoordinates = async (dest) => {
 
-    return responseJSON
+    const response = await fetch('http://localhost:8000/coordinates', {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dest),
+    })
+  
+      try {
+        const data = await response.json()
+        return data
+        
+      }catch(error) {
+        console.log("error", error);
+      }
 }
