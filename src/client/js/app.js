@@ -36,6 +36,30 @@ const updateUI = async (projectData) => {
   const content = document.getElementById('content')
   content.innerHTML = ''
   content.style.height = '80vh'
+  const img = document.createElement('img');
+  img.src = projectData.pic; 
+	const contentBox = document.getElementById('content')
+  contentBox.appendChild(img);
+
+  const description = document.createElement('P')
+  description.innerHTML = `Here is your forecast for ${projectData.city} on ${projectData.arival}:`
+  contentBox.appendChild(description)
+
+  const flexBox = document.createElement('DIV')
+  flexBox.id = 'weatherFlexBox'
+
+  const hiTempBox = document.createElement('DIV')
+  hiTempBox.className = 'weatherBox'
+  const loTempBox = document.createElement('DIV')
+  loTempBox.className = 'weatherBox'
+  const windBox = document.createElement('DIV')
+  windBox.className = 'weatherBox'
+  contentBox.appendChild(flexBox)
+  flexBox.appendChild(hiTempBox)
+  flexBox.appendChild(loTempBox)
+  flexBox.appendChild(windBox)
+
+
   return
 
 }
