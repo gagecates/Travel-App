@@ -83,7 +83,7 @@ app.post('/getWeather', async function (req, res) {
   const arival = req.body.arival
   const date = new Date()
 
-  const weatherURL = `http://api.weatherbit.io/v2.0/forecast/daily?NC&key=${weatherBitKey}&lat=${lat}&lon=${lng}`;
+  const weatherURL = `http://api.weatherbit.io/v2.0/forecast/daily?NC&key=${weatherBitKey}&lat=${lat}&lon=${lng}&units=I`;
   const response = await fetch(weatherURL)
     
     try {
@@ -96,15 +96,16 @@ app.post('/getWeather', async function (req, res) {
       
       if (daysFromToday >= 7) {
         data.date = responseJSON.data[daysFromToday].datetime
-        data.hiTemp = responseJSON.data[daysFromToday].high_temp
-        data.loTemp = responseJSON.data[daysFromToday].low_temp
-        data.wind = responseJSON.data[daysFromToday].wind_spd
+        data.hiTemp = Math.round(responseJSON.data[daysFromToday].high_temp)
+        data.loTemp = Math.round(responseJSON.data[daysFromToday].low_temp)
+        data.wind = Math.round(responseJSON.data[daysFromToday].wind_spd)
 
       } else {
         data.date = responseJSON.data[0].datetime
-        data.hiTemp = responseJSON.data[0].high_temp
-        data.loTemp = responseJSON.data[0].low_temp
-        data.wind = responseJSON.data[0].wind_spd
+        data.hiTemp = Math.round(responseJSON.data[0].high_temp)
+        data.loTemp = Math.round(responseJSON.data[0].low_temp)
+        data.wind = Math.round(responseJSON.data[0].wind_spd)
+      
       }
 
       res.send(data)

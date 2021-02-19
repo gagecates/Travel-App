@@ -4,3 +4,5 @@ add a 16 day limit to the calender input and a description explaining to the use
 all data is working and is ready to update UI.
 
 need to work in HTML to dynamically display data.
+
+change generic pic dimetinos to match the ones proveded from API they are perfect size
