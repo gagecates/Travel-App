@@ -38,9 +38,11 @@
     #main-content{
         grid-area: ct;
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
+        align-items: center;
         padding-right: 5vw;
         padding-top: 13vh;
+        border: 3px solid blue;
     }
     
     #footer{
@@ -52,21 +54,31 @@
     }
     
     #content{
-        font-size: 2.5vh;
+        font-size: 3vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        color: #fceb8a;
         text-align: center;
         backdrop-filter: blur(20px);
         border-radius: 20px;
         height: 50vh;
-        width: 30vw;
+        width: 50vw;
         font-family: 'Kalam', cursive;
+        align-self: center;
+        border: 3px solid purple;
     }
     
     h1{
         font-size: 10vh;
         font-family: 'Kalam', cursive;
-        text-shadow: 2px 2px #ebc51f;
+        text-shadow: 2px 2px #fceb8a;
     }
     
+    p{
+        text-shadow: 2px 2px #080808;
+    }
     input{
         width: 20vw;
         padding: 1vh;
@@ -94,10 +106,6 @@
     button:hover {
       background-color: #000501; /* Green */
       color: #fceb8a;
-    }
-    
-    form{
-        padding-top: 30px;
     }
     
     /* social media button styling */

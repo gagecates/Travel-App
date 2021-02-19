@@ -26,13 +26,17 @@ async function handleSubmit(event) {
     "pic": pic.photo
   })
 
-  updateUI(projectData)
+  const update = await updateUI(projectData)
 
 }
 
 
-const updateUI = projectData => {
+const updateUI = async (projectData) => {
   console.log(projectData)
+  const content = document.getElementById('content')
+  content.innerHTML = ''
+  content.style.height = '80vh'
+  return
 
 }
 
