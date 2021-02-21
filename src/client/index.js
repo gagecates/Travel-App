@@ -9,8 +9,6 @@ import './style/style.scss'
 import './style/mobile.scss'
 
 
-alert("We're Up!")
-
 export {
     handleSubmit
 }

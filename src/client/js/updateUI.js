@@ -1,8 +1,8 @@
-const updateUI = async (projectData) => {
+const updateUI = async (projectData, arivalDate) => {
     console.log(projectData)
     const content = document.getElementById('content')
     content.innerHTML = ''
-    content.style.height = '80vh'
+    content.style.height = '70vh'
     const img = document.createElement('img');
     img.src = projectData.pic; 
     img.id = 'destinationPic'
@@ -10,8 +10,9 @@ const updateUI = async (projectData) => {
     contentBox.appendChild(img);
 
     // create 'here is your forecast' text
+    const arivalDateDay = dateDayOfWeek(arivalDate)
     const description = document.createElement('P')
-    description.innerHTML = `Here is your forecast for ${projectData.city} on ${projectData.arival}:`
+    description.innerHTML = `Here is your forecast for ${projectData.city} on ${arivalDateDay}:`
     contentBox.appendChild(description)
   
     // flex box to contain the weather bubbles
@@ -30,7 +31,6 @@ const updateUI = async (projectData) => {
     hiValue.innerHTML = projectData.hiTemp
     hiTempBox.appendChild(hiValue)
 
-  
     // lo temp bubble
     const loTempBox = document.createElement('DIV')
     loTempBox.className = 'weatherBox'
@@ -55,16 +55,27 @@ const updateUI = async (projectData) => {
     windValue.innerHTML = `${projectData.wind}mph`
     windBox.appendChild(windValue)
 
-
-    
     contentBox.appendChild(flexBox)
     flexBox.appendChild(hiTempBox)
     flexBox.appendChild(loTempBox)
     flexBox.appendChild(windBox)
   
-  
     return
   
   }
 
-  export {updateUI}
+  // returns actual day of week name from 'yyyy-mm-dd' format
+  function dateDayOfWeek(date) {
+
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    const newDate = new Date(date)
+    const dayNumber = newDate.getDay()
+
+    console.log(date)
+    console.log(dayNumber)
+    return days[dayNumber]
+
+  }
+
+
+  export {updateUI, dateDayOfWeek}
