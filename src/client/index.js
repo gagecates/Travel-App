@@ -7,8 +7,16 @@ import { updateUI } from './js/updateUI'
 
 import './style/style.scss'
 import './style/mobile.scss'
+import './pics/balloon-background.jpg'
+import './pics/beach-background.jpg'
 
 
 export {
-    handleSubmit
+    
+    handleSubmit,
+    getCityPicture,
+    getCoordinates,
+    getWeather,
+    postData,
+    updateUI
 }
