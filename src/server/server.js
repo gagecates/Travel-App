@@ -23,29 +23,39 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static('dist'));
 
-// Setup Server
+
 const port = 8000;
 
-const server = app.listen(port, listening);
-
 function listening(){
-    console.log("server running"); 
-    console.log(`running on localhost: ${port}`);
-}
+    console.log(server);
+    console.log(`Front end developer final project: running on localhost: ${port}`);
+};
+
+const server = app.listen(port, listening);
+//module.exports = app
+
+// Setup Server
+
 
 
 // API info
 const geoUser = process.env.geoUser;
-const weatherBitKey = process.env.weatherBitKey
-const pixabayKey = process.env.pixabayKey
+const weatherBitKey = process.env.weatherBitKey;
+const pixabayKey = process.env.pixabayKey;
 
 let projectData = {}
-const genericPhotoURL = 'https://locationindie.com/wp-content/uploads/2018/01/travel-2569522_1920.jpg'
+const genericPhotoURL = 'https://locationindie.com/wp-content/uploads/2018/01/travel-2569522_1920.jpg';
 
 
 // return home page to client
 app.get('/', function (req, res) {
   res.sendFile(path.resolve('src/client/views/index.html'))
+})
+
+
+// test enpoint for jest
+app.get('/test', async (req, res) => {
+  res.json({message: 'pass!'})
 })
 
 
@@ -158,3 +168,5 @@ app.post('/addData', async function (req, res) {
   res.send(projectData)
 
 })
+
+//export { app };

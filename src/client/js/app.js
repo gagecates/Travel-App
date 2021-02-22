@@ -5,7 +5,6 @@ import {postData} from './postData'
 import {updateUI} from './updateUI'
 
 
-
 // dynamically adjust callender 
 window.onload = function() {
 
