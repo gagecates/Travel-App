@@ -1,4 +1,4 @@
-# Travel App Project
+# What's the Weather?
 
 ## Overview
 This is the final capstone project for  the Udacity front end nanodegree program. This traveling app allowing users to 
@@ -8,16 +8,24 @@ well as wind speed.
 ## Stack
 `
     HTML
+`
+`
     CSS
+`
+`
     Javascript
+`
+`
     Node.js
+`
+`
     Jest
 `
 
 This project utilizes HTML, CSS, and Javascript for the front end. Node.js runs the backend express server. The project
 uses Webpack to bring it all together. Jest was used for final testing.
 
-# API's
+## API's
 The app uses 3 different API's to gather its data. 
 
 [Geonames](http://www.geonames.org/export/web-services.html) is used to convert the input city to coordinates.
