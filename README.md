@@ -1,6 +1,41 @@
 # Travel App Project
 
 ## Overview
-This is Udacities front end nanodegree capstone project. This traveling app allowing users to 
-enter a destination and be presented with a forecasted weather for a specific time period.
+This is the final capstone project for  the Udacity front end nanodegree program. This traveling app allowing users to 
+enter a destination and arrival date to be presented with a forecasted weather including expected high/low temperature as 
+well as wind speed.
+
+## Stack
+`
+    HTML
+    CSS
+    Javascript
+    Node.js
+    Jest
+`
+
+This project utilizes HTML, CSS, and Javascript for the front end. Node.js runs the backend express server. The project
+uses Webpack to bring it all together. Jest was used for final testing.
+
+# API's
+The app uses 3 different API's to gather its data. 
+
+[Geonames](http://www.geonames.org/export/web-services.html) is used to convert the input city to coordinates.
+
+[Weatherbit](https://www.weatherbit.io/account/create) uses the coordinates to fetch weather data accordingly.
+
+[Pixabay](https://pixabay.com/api/docs/) fetches a picture of the city to be displayed for the user.
+
+## Try it out!
+To give it a try:
+
+1. Download or clone the project.
+`
+    https://github.com/gagecates/Travel-App
+`
+2. Install dependencies
+`
+    npm i --save-dev
+`
+3. 
 
