@@ -26,12 +26,8 @@ app.use(express.static('dist'));
 
 const port = 8000;
 
-function listening(){
-    console.log(server);
-    console.log(`Front end developer final project: running on localhost: ${port}`);
-};
 
-const server = app.listen(port, listening);
+module.exports = app.listen(port)
 //module.exports = app
 
 // Setup Server

@@ -59,8 +59,9 @@
         text-align: center;
         backdrop-filter: blur(20px);
         border-radius: 20px;
-        height: 55vh;
+        height: 50vh;
         width: 50vw;
+        max-width: 1000px;
         font-family: 'Kalam', cursive;
         align-self: center;
         //border: 2px solid black;
@@ -95,6 +96,11 @@
     .bubbleValue{
         font-size: 100%;
 
+    }
+
+    .icon{
+        width: 4vw;
+        height: 4vh;
     }
 
     .bubbleHeader{
