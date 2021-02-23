@@ -26,6 +26,11 @@ The app uses 3 different API's to gather its data.
 
 [Pixabay](https://pixabay.com/api/docs/) fetches a picture of the city to be displayed for the user.
 
+The API Keys are all stored in a .env file
+
+*** In order to have API authentication you will need a .env file with an API key for [Weatherbit](https://www.weatherbit.io/account/create)
+and [Pixabay](https://pixabay.com/api/docs/). However, only a username is needed for [Geonames](http://www.geonames.org/export/web-services.html). ***
+
 ## Try it out!
 To give it a try:
 
@@ -37,5 +42,20 @@ To give it a try:
 `
     npm i --save-dev
 `
-3. 
+3. Start Express server
+`
+    npm start
+`
+4. Run Webpack build
+`
+    npm run build-prod
+`
+5. Navigate site
+`
+    head to [localhost:8000] (http://localhost:8000) to check out the site
+`
+6. To test using Jest:
+`
+    npm run test
+`
 
