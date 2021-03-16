@@ -24,7 +24,7 @@ const updateUI = async (projectData, arivalDate) => {
     hiTempBox.className = 'weatherBox'
     const hiIcon = document.createElement('img')
     hiIcon.className = "icon"
-    hiIcon.src = "src/client/pics/icon-hi.jpg"
+    hiIcon.src = "../client/pics/icon-hi.jpg"
     hiTempBox.appendChild(hiIcon)
     const hiHeader = document.createElement('DIV')
     hiHeader.className = 'bubbleHeader'
@@ -40,7 +40,7 @@ const updateUI = async (projectData, arivalDate) => {
     loTempBox.className = 'weatherBox'
     const loIcon = document.createElement('img')
     loIcon.className = "icon"
-    loIcon.src = "src/client/pics/icon-lo.jpg"
+    loIcon.src = "../client/pics/icon-lo.jpg"
     loTempBox.appendChild(loIcon)
     const loHeader = document.createElement('DIV')
     loHeader.className = 'bubbleHeader'
@@ -56,7 +56,7 @@ const updateUI = async (projectData, arivalDate) => {
     windBox.className = 'weatherBox'
     const windIcon = document.createElement('img')
     windIcon.className = "icon"
-    windIcon.src = "src/client/pics/icon-wind.png"
+    windIcon.src = "../client/pics/icon-wind.png"
     windBox.appendChild(windIcon)
     const windHeader = document.createElement('DIV')
     windHeader.className = 'bubbleHeader'
