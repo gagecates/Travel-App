@@ -10,9 +10,6 @@ import './client/style/mobile.scss'
 import './client/pics/balloon-background.jpg'
 import './client/pics/beach-background.jpg'
 
-import "./client/pics/icon-hi.jpg"
-import "./client/pics/icon-lo.jpg"
-import "./client/pics/icon-wind.png"
 
 export {
     
@@ -21,5 +18,5 @@ export {
     getCoordinates,
     getweather,
     postData,
-    updateUI
+    updateUI,
 }
