@@ -24,7 +24,7 @@ app.use(cors());
 app.use(express.static('dist'));
 
 
-const port = 8000;
+const port = process.env.PORT;
 
 
 module.exports = app.listen(port)

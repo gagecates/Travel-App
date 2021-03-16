@@ -30,7 +30,7 @@ This project utilizes HTML, CSS, and Javascript for the front end. Node.js runs 
 uses Webpack to bring it all together. Jest was used for final testing.
 
 ## API's
-The app uses 3 different API's to gather its data. 
+The app uses 3 different API's to gather its data
 
 [Geonames](http://www.geonames.org/export/web-services.html) is used to convert the input city to coordinates.
 
