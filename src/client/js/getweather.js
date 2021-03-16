@@ -18,4 +18,4 @@ const getWeather = async (data = {}) => {
       }
   };
 
-export{getWeather}
+export{ getWeather }
