@@ -1,7 +1,7 @@
 // fetch to server for coordinates using users city
 const getCoordinates = async (data = {}) => {
 
-  const response = await fetch('http://localhost:8000/coordinates', {
+  const response = await fetch('https://where-to-gmc.herokuapp.com/coordinates', {
       method: 'POST',
       credentials: 'same-origin',
       headers: {

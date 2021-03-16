@@ -1,6 +1,6 @@
 const getweather = async (data = {}) => {
   
-    const response = await fetch('http://localhost:8000/getWeather', {
+    const response = await fetch('https://where-to-gmc.herokuapp.com/getWeather', {
         method: 'POST',
         credentials: 'same-origin',
         headers: {

@@ -1,6 +1,6 @@
 const postData = async (data = {})=>{
 
-    const response = await fetch('http://localhost:8000/addData', {
+    const response = await fetch('https://where-to-gmc.herokuapp.com/addData', {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         credentials: 'same-origin', // include, *same-origin, omit
         headers: {

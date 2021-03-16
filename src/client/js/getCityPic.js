@@ -1,6 +1,6 @@
 const getCityPicture = async (data = {}) => {
 
-    const response = await fetch('http://localhost:8000/getPic', {
+    const response = await fetch('https://where-to-gmc.herokuapp.com/getPic', {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         credentials: 'same-origin', // include, *same-origin, omit
         headers: {
