@@ -2,13 +2,16 @@
   "name": "Travel-App",
   "version": "1.0.0",
   "main": "index.js",
+  "engines": {
+    "node": "14.15.4"
+  },
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
     "start": "node src/server/server.js",
     "build-prod": "webpack --config webpack.prod.js",
     "build-dev": "webpack-dev-server  --config webpack.dev.js --open",
-    "heroku-postbuild": "webpack -p"
+    "postinstall": "webpack -p"
   },
   "keywords": [],
   "author": "",
