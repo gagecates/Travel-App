@@ -1,7 +1,7 @@
 import { handleSubmit } from './client/js/app'
 import { getCityPicture } from './client/js/getCityPic'
 import { getCoordinates } from './client/js/getCoords'
-import { getWeather } from './client/js/getWeather'
+import { getweather } from './client/js/getweather'
 import { postData } from './client/js/postData'
 import { updateUI } from './client/js/updateUI'
 
@@ -16,7 +16,7 @@ export {
     handleSubmit,
     getCityPicture,
     getCoordinates,
-    getWeather,
+    getweather,
     postData,
     updateUI
 }

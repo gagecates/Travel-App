@@ -1,6 +1,6 @@
 import {getCoordinates} from './getCoords'
 import {getCityPicture} from './getCityPic'
-import {getWeather} from './getWeather'
+import {getweather} from './getweather'
 import {postData} from './postData'
 import {updateUI} from './updateUI'
 
@@ -36,7 +36,7 @@ async function handleSubmit(event) {
 
   // await functions fetch from server and are chained to retrieve the data one by one
   const coords = await getCoordinates({"dest": dest})
-  const weather = await getWeather({lng: coords.lng, lat: coords.lat, arival: arival})
+  const weather = await getweather({lng: coords.lng, lat: coords.lat, arival: arival})
   const pic = await getCityPicture({"dest": dest})
   const projectData = await postData({
     "city": coords.city,

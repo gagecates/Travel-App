@@ -1,4 +1,4 @@
-const getWeather = async (data = {}) => {
+const getweather = async (data = {}) => {
   
     const response = await fetch('http://localhost:8000/getWeather', {
         method: 'POST',
@@ -18,4 +18,4 @@ const getWeather = async (data = {}) => {
       }
   };
 
-export{ getWeather }
+export{ getweather }
