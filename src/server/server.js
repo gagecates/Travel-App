@@ -24,7 +24,7 @@ app.use(cors());
 app.use(express.static('dist'));
 
 
-const port = process.env.PORT;
+const port = process.env.PORT || 80;
 
 
 module.exports = app.listen(port)
